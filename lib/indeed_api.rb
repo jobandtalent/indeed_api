@@ -22,7 +22,7 @@ module IndeedAPI
     @publisher_id
   end
 
-  # Search the API 
+  # Search the API
   # Can specify options at https://ads.indeed.com/jobroll/xmlfeed
   def self.search_jobs(options = {})
     options.merge!(:publisher => self.publisher_id, :v => API_VERSION)
@@ -57,7 +57,7 @@ module IndeedAPI
   # Throw errors if the response contains an error
   def self.handle_errors(response)
     error = response['response']['error']
-    raise Indeed::IndeedError.new(error) if error
+    raise IndeedAPI::IndeedError.new(error) if error
   end
 
 
